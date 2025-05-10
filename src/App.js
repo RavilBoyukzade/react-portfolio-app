@@ -1,4 +1,8 @@
 import React,{Component} from 'react';
+import { BrowserRouter as Router,Routes,Route } from 'react-router';
+import Header from './components/Header';
+import Resume from './components/Resume';
+import Portfolio from './components/Portfolio';
 import './App.css';
 import About from './components/About';
 
@@ -25,9 +29,17 @@ import About from './components/About';
 class App extends Component{
   render(){
     return(
-      <div className='App'>
-        <About/>
-      </div>
+      <Router>
+        <Header/>
+        <Routes>
+          <Route path='/' element={<About/>}/>
+          <Route path='/portfolio' element={<Portfolio/>}/>
+          <Route path='/resume' element={<Resume/>}/>
+        </Routes>
+      </Router>
+      // <div className='App'>
+      //   <About/>
+      // </div>
     );
   }
 }
